@@ -1,0 +1,120 @@
+#MRO
+class A:
+    def greet(self):
+        return "Hello from class A"
+
+class B(A):
+    def greet(self):
+        return "Hello from class B"
+
+class C(A):
+    def greet(self):
+        return "Hello from class C"
+
+class D(B, C):
+    pass
+
+# Creating an instance of class D
+obj_d = D()
+print(obj_d.greet())  # Output: "Hello from class B"
+
+#Polymorphism
+class Animal:
+  def make_sound(self):
+    print("Generic animal sound")
+
+class Dog(Animal):
+  def make_sound(self):
+    print("Woof!")
+
+animals = [Dog(), Animal()]
+for animal in animals:
+  animal.make_sound()  # Output: Woof! (for Dog), Generic animal sound (for Animal)
+
+#Polyphorpic duck typing
+class Duck:
+    def quack(self):
+        return "Duck quacks"
+
+class Person:
+    def quack(self):
+        return "Person imitates duck"
+
+# Polymorphic behavior using duck typing
+def make_sound(obj):
+    return obj.quack()
+
+duck_obj = Duck()
+person_obj = Person()
+
+print(make_sound(duck_obj))    # Output: "Duck quacks
+print(make_sound(person_obj))  # Output: "Person imitates duck"
+
+#Exercise 1: Single Inheritance Instruction:
+class Shape:
+    def __init__(self, length, width):
+      self.length = length
+      self.width = width
+      
+    def calculate_area(self):
+       area = self.length * self.width
+       return area
+       print(f"{area}")
+    
+class Rectangle(Shape):
+    def __init__(self, length, width):
+      self.length = length
+      self.width = width
+      
+    def calculate_area(self):
+       area = self.length * self.width
+       return area
+       print(f"The area of the rectangle is {area}")
+    
+rectangle1 = Rectangle(10, 5)
+rectangle2 = Rectangle(5, 8)
+
+print(rectangle1.length)
+print(rectangle2.width)
+print(rectangle2.calculate_area())
+print(rectangle1.calculate_area())
+
+#Exercise 2: Multiple Inheritance Instruction
+class Bird:
+   def fly(self):
+      return "flying"
+   
+class Mammal:
+   def run(self):
+      return "running"
+   
+class Bat(Bird, Mammal):
+    pass
+
+obj_bat = Bat()
+print(obj_bat.fly())
+print(obj_bat.run())
+
+#Exercise 3: Polymorphism with Duck Typing Instruction:
+class Dog: 
+    def make_sound(self):
+        return "barks"
+    
+class Cat:
+    def make_sound(self):
+       return "meows"
+    
+class Bird:
+    def make_sound(self):
+       return "chirps"
+   
+def let_them_speak(obj):
+   return obj.make_sound()
+
+lucy = Dog()
+pussy = Cat()
+tilt = Bird()
+
+print(let_them_speak(lucy))
+print(let_them_speak(pussy))
+print(let_them_speak(tilt))
